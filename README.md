@@ -1,5 +1,5 @@
-# Lambda IoT Client :flag_mx:
-_bellow there's an english :flag_gb: documentation_
+# Lambda IoT Client
+_bellow there's an english documentation_
 
 El Lambda Iot Client es una aplicación para computadoras que permite comunicar dispositivos Arduino con el Lambda. Este es básicamente un programa de Python que se conecta a un chat que permite comunicar el servidor principal de Lambda con dispositivos Arduino para **interactuar con ellos desde un chat, desde cualquier lugar**. En este sistema podrás conectar:
 
