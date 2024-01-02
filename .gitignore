@@ -1,0 +1,12 @@
+# Ignore Mac system files
+*.DS_Store
+*.cfg
+
+# other files from system
+__init__.pyc
+
+# virtual env
+venv
+
+# chat logs
+db/log.txt

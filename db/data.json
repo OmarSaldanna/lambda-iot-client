@@ -1,0 +1,8 @@
+{
+	"host": "lambda server ip",
+	"port": port,
+	"id": "your id",
+	"devices": {
+		
+	}
+}
