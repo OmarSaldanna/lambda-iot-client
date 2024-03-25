@@ -15,8 +15,8 @@ dht11 DHT11;
 float temp, hum;
 
 // here the configuration of your wifi network
-const char* ssid = "Asadero Cien"; // name
-const char* password = "buenprovecho"; // password
+const char* ssid = "***"; // name
+const char* password = "***"; // password
 
 /* Devices for this program: just change the IP
 
