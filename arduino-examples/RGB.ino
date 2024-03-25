@@ -2,29 +2,24 @@
 #include <WebServer.h>
 #include <ArduinoJson.h>
 
-// internet SSID, name of the network
-const char* ssid = "******";
-// password
-const char* password = "******";
+// here the configuration of your wifi network
+const char* ssid = "***"; // name
+const char* password = "***"; // password
 
-/* Devices for this program
+/* Devices for this program: just change the IP
 
 "devices": {
 		"led rojo": {
-			"ip": "Arduino IP",
+			"ip": "your arduino's IP",
 			"type": "output"
 		},
 		"led verde": {
-			"ip": "Arduino IP",
+			"ip": "your arduino's IP",
 			"type": "output"
 		},
 		"led azul": {
-			"ip": "Arduino IP",
+			"ip": "your arduino's IP",
 			"type": "output"
-		},
-		"termometro": {
-			"ip": "Arduino IP",
-			"type": "input"
 		}
 	}
 
@@ -59,28 +54,33 @@ void setup() {
   digitalWrite(bluePin, HIGH);
 
   ///////////////////////////////////////////////////////////////////////
-  // begin the serial port
-  Serial.begin(115200);
-
-  // Connect to Wi-Fi
+  
+  // connect to Wi-Fi
   WiFi.begin(ssid, password);
+  // start the wifi connection process
+  Serial.print("Conectando a wifi");
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+    // try to connect every 500 milis
     Serial.print(".");
+    delay(500);
   }
+  // send a message of succesfully connected
+  Serial.println("Conexion exitosa");
+  
+  // begin the serial monitor
+  Serial.begin(115200);
   // Print the IP address
-  Serial.print("IP address: ");
+  Serial.print("IP: ");
   Serial.println(WiFi.localIP());
-
+  
   // Start the server
   server.begin();
-  Serial.println("Server started");
-
   // Define the GET request handler
   server.on("/iot", handleGetData);
 }
 
 void loop() {
+  // while true, keep the server listening
   server.handleClient();
 }
 
@@ -88,8 +88,9 @@ void handleGetData() {
   // Check if the request has JSON data
   if (server.hasArg("plain") && server.arg("plain") != "") {
     String jsonString = server.arg("plain");
-    Serial.println("Request recibida:");
-    Serial.println(jsonString);
+    // uncomment the next prints to see what the Arduino receives
+    // Serial.println("Request recibida:");
+    // Serial.println(jsonString);
     // Example with a 200-byte allocation:
     DynamicJsonDocument doc(1024);
     deserializeJson(doc, jsonString);

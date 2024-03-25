@@ -1,8 +1,15 @@
 {
-	"host": "lambda server ip",
-	"port": port,
-	"id": "your id",
+	"host": "lambda",
+	"port": 31416,
+	"id": "717071120175595631",
 	"devices": {
-		
+		"humedad": {
+			"ip": "192.168.6.128",
+			"type": "input"
+		},
+	    "temperatura": {
+	      "ip": "192.168.6.128",
+	      "type": "input"
+	    }
 	}
 }

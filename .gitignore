@@ -4,6 +4,7 @@
 
 # other files from system
 __init__.pyc
+__pycache__
 
 # virtual env
 venv
